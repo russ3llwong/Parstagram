@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://hidden-lowlands-14515.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil) //main storyboard
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController") //create instance
+            window?.rootViewController = feedNavigationController
+        }
+        
         return true
     }
 
